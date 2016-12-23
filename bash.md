@@ -100,3 +100,8 @@ do
    curl -sL -w "code: %{http_code} time: %{time_total}\\n" $URL -o /dev/null
 done
 ```
+
+# Convert video to image sequence
+```sh
+ffmpeg -ss 00:01:09 -t 4 -i Monster.mp4 -r 25 monster/out_%04d.jpg
+```
