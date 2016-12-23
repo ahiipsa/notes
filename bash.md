@@ -105,3 +105,18 @@ done
 ```sh
 ffmpeg -ss 00:01:09 -t 4 -i Monster.mp4 -r 25 monster/out_%04d.jpg
 ```
+# Loop download
+```
+#!/bin/bash
+for i in {1..24}
+do
+   wget http://fromurl/$i.jpg -P /path/to/
+done
+
+# OR
+
+for i in $(seq -f "%03g" 1 141)
+do
+   wget http://www.asus.com/websites/global/products/Dk8e9bfQfAVwlAC3/3d/360_$i.jpg -P /home/sergey/test/
+done
+```
