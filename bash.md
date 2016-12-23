@@ -80,3 +80,9 @@ BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 version=v0.1.101
 echo "${version%.*}.$((${version##*.}+1))"
 ```
+
+# Check who listen port
+
+```sh
+lsof -n -i4TCP:$PORT | grep LISTEN
+```
