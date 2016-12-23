@@ -86,3 +86,17 @@ echo "${version%.*}.$((${version##*.}+1))"
 ```sh
 lsof -n -i4TCP:$PORT | grep LISTEN
 ```
+
+# Status code for url and response time
+```sh
+#!/usr/bin/env bash
+
+URL="http://google.com"
+
+echo $URL
+
+for i in {1..10}
+do
+   curl -sL -w "code: %{http_code} time: %{time_total}\\n" $URL -o /dev/null
+done
+```
